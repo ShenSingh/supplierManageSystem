@@ -1,7 +1,6 @@
 ////////////////////////////////////      【★】       ////////////////////////////////////
 ////////////////////////////////      Start program     /////////////////////////////////
 ////////////////////////////      •‿•  Hello world •‿•     //////////////////////////////
-////////////////////////        [♥]]] [♦]]] [♣]]] [♠]]]       ///////////////////////////
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -34,19 +33,16 @@ class SupManageSys{
     }
     public static void disTimeDate(){
         LocalDateTime currentDateTime = LocalDateTime.now();
-
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-
         String formattedDateTime = currentDateTime.format(formatter);
-
         System.out.println("\t\t\t\t\t\t\t\t\t\t\t" + formattedDateTime);
     }
-    
     public static void main(String[] args){////////// Main Method/////////////////////
     
         logingPage();
+    
     }
-    public static void  logingPage() {
+    public static void  logingPage(){
         clearConsole();
         disTimeDate();
         System.out.println("\t\t\t\t+--------------------------------------------+");
@@ -59,9 +55,10 @@ class SupManageSys{
             System.out.println();
             System.out.print("Enter User Name"+keyBoard+"\n\t\t"+"✎. ");
             String UserName = keyIn.next();
+            int i=0;
 
             if (UserName.equals(uName)) {
-                do {
+                for (i = 0; i <5; i++) {                    
                     System.out.println();
                     System.out.print("Enter User Password"+"\n\t\t"+"✎. ");
                     String pass = keyIn.next();
@@ -73,7 +70,35 @@ class SupManageSys{
                         System.out.println("wrong password! try agin ✗");
                         System.out.println();
                     }
-                } while (flog02);
+                }
+                ///////////////////////////////////////forget pass///////////////////////////
+                clearConsole();
+                disTimeDate();
+                System.out.println("\t\t\t\t+--------------------------------------------+");
+                System.out.println("\t\t\t\t|                 Loging Page                |");
+                System.out.println("\t\t\t\t+--------------------------------------------+");
+
+                do{
+
+                    System.out.println();
+                    System.out.print("Do you wont to forget password(y/n)"+keyBoard+"\n\t\t"+"✎. ");
+                    String option =keyIn.next();
+    
+                    if (option.equals("y")) {
+                        System.out.print("Enter your Gmail "+"\n\t\t"+"✎. ");
+                        String gmail=keyIn.next();
+                        fogetPass(gmail);
+                    }
+                    if (option.equals("n")) {
+                        logingPage();
+                    }
+                    else{
+                        System.out.println("worng Commond try Again!");
+                        flog02=true;
+                    }
+                }while(flog01);
+                
+                
             } else {
                 clearConsole();
                 disTimeDate();
@@ -84,6 +109,131 @@ class SupManageSys{
             }
         } while (flog01);
     }
+    private static void fogetPass(String gmail) {
+        Random random = new Random();
+        boolean flog01=false;
+        boolean flog02=false;
+        
+        do{
+            flog01=false;
+            /////////////////////////////////////////////////////////////////////////
+            clearConsole();
+            disTimeDate();
+            System.out.println("\t\t\t\t+--------------------------------------------+");
+            System.out.println("\t\t\t\t|                 Loging Page                |");
+            System.out.println("\t\t\t\t+--------------------------------------------+");
+            System.out.println("\n\n\n\n");
+    
+    
+           
+    
+            System.out.println("\t\t\t\t\t\t W   A  I  T ");
+            System.out.println();
+            System.out.print("\t\t\t\t\t      ◆");
+            
+    
+            
+            for (int i = 0; i < 8; i++) {
+                
+                System.out.print("◇");
+                try {
+                    // Sleep for 1 second (1000 milliseconds)
+                    Thread.sleep(1500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                 System.out.print("◆");
+                try {
+                    // Sleep for 1 second (1000 milliseconds)
+                    Thread.sleep(1500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            
+            
+            ////////////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////////
+            clearConsole();
+            disTimeDate();
+            System.out.println("\t\t\t\t+--------------------------------------------+");
+            System.out.println("\t\t\t\t|                 Loging Page                |");
+            System.out.println("\t\t\t\t+--------------------------------------------+");
+            System.out.println("\n\n");
+            int randomNum = 0;
+            int lowerBound = 1001;
+            int upperBound = 9999;
+    
+            for (int i = 0; i < 10; i++) {
+                randomNum = random.nextInt(upperBound - lowerBound + 1) + lowerBound;
+            }
+    
+            System.out.println("\t\t\t+------------------------------------------------------+");
+            System.out.printf("\t\t\t|   %-50s |%n", gmail);
+            System.out.println("\t\t\t+------------------------------------------------------+");
+    
+            for (int i = 0; i < 4; i++) {
+                System.out.printf("\t\t\t|   %-50s |%n", ""); // Add an empty string as the missing argument
+            }
+           System.out.println("\t\t\t|                      Hey User                        |");
+           System.out.println("\t\t\t|                Your PIN Number is                    |");
+           System.out.println("\t\t\t|                                                      |");
+           System.out.println("\t\t\t|                       "+randomNum+"                           |");
+    
+            for (int i = 0; i < 4; i++) {
+                System.out.printf("\t\t\t|   %-50s |%n", ""); // Add an empty string as the missing argument
+            }
+            System.out.println("\t\t\t+------------------------------------------------------+");
+            
+            //////////////////////////////////////////////////////////////////////
+            System.out.println();
+            
+            System.out.print("Enter Your PIN Number"+keyBoard+"\n\t\t"+"✎. ");
+            String pinNumber=keyIn.next();
+
+            String randPinNum = String.valueOf(randomNum);
+            // String strNumber2 = "" + number;
+    
+            if (pinNumber.equals(randPinNum)){
+                clearConsole();
+                disTimeDate();
+                System.out.println("\t\t\t\t+--------------------------------------------+");
+                System.out.println("\t\t\t\t|                 Loging Page                |");
+                System.out.println("\t\t\t\t+--------------------------------------------+");
+                System.out.println("\n\n");
+
+                System.out.println("Verifid successfully!");
+                System.out.println("\n");
+                System.out.print("Enter new password"+keyBoard+"\n\t\t"+"✎. ");
+                uPassword=keyIn.next();
+                System.out.println("password change Successful.");
+
+                do{
+                    flog02=false;
+                    System.out.println();
+                    System.out.print("Do you wont to go loging page(y/n)"+"\n\t\t"+"✎. ");
+                    String option=keyIn.next();
+    
+                    if (option.equals("y")) {
+                        logingPage();
+                    }
+                    if (option.equals("n")) {
+                        fogetPass(gmail);
+                    }
+                    else{
+                        System.out.println("wrong commond try agin!");
+                        flog02=true;
+                    }
+                }while(flog02);
+            }
+            else{
+                System.out.println("you pin number is worng try agin");
+                flog01=true;
+            }
+        }while(flog01);
+       
+    }
+    
     public static void mainManu(){
         clearConsole();
         disTimeDate();
@@ -116,6 +266,7 @@ class SupManageSys{
                     logingPage();
                     break;
                 case "5":
+                System.exit(0);
                     break;
                 default:
                     clearConsole();
@@ -143,7 +294,7 @@ class SupManageSys{
 
         System.out.println("[1] Add Supplier"+"\t\t\t[2] Update Supplier");
         System.out.println("[3] Delete Supplier"+"\t\t\t[4] View Suppliers");
-        System.out.println("[5] Search Supplier"+"\t\t\t[6] Home Page");
+        System.out.println("[5] Search Supplier"+"\t\t\t[6] Home Page\n");
 
         boolean flog01=false;        
         do{
@@ -176,7 +327,7 @@ class SupManageSys{
                     System.out.println("\t\t\t+--------------------------------------+\n");
                     System.out.println("[1] Add Supplier"+"\t\t\t[2] Update Supplier");
                     System.out.println("[3] Delete Supplier"+"\t\t\t[4] View Suppliers");
-                    System.out.println("[5] Search Supplier"+"\t\t\t[6] Home Page");
+                    System.out.println("[5] Search Supplier"+"\t\t\t[6] Home Page\n");
 
                     System.out.println("wrong commond! Plese Try agin ✗");
                     flog01=true;
@@ -286,6 +437,8 @@ class SupManageSys{
         boolean flog02=false;
 
         do{
+			 flog01=false;
+			flog02=false;
             System.out.println();
             System.out.print("Enter Supplier Id"+keyBoard+"\n\t\t"+"✎. ");
             String supId=keyIn.next();
@@ -315,7 +468,7 @@ class SupManageSys{
                 deleteSupplier();
             }
             if (option.equals("n")){
-                StockManagement();
+                SupplierManage();
             }
             else{
                 System.out.println("worng commond! try agin ✗");
@@ -361,10 +514,12 @@ class SupManageSys{
             for (int i = 0; i < supplier.length; i++){
                 if (supplier[i][0].equals(supId)){
                     System.out.println("curent Supplier name is : "+supplier[i][1]);
-                    System.out.print("Enter new Supplier Name"+"\n\t\t"+"✎. ");
+                    System.out.print("\nEnter new Supplier Name"+"\n\t\t"+"✎. ");
                     supplier[i][1]=keyIn.next();
                     System.out.println("Update sucsussfuly.");
-                }else{
+                    break;
+                }
+                else{
                     clearConsole();
                     disTimeDate();
                     System.out.println("\t\t\t+----------------------------------------+");
@@ -376,6 +531,7 @@ class SupManageSys{
             }
         }while(flog01);
         do{
+            flog02=false;
             System.out.println();
             System.out.print("Do you wont to update anothr Supplier(y/n)"+"\n\t\t"+"✎. ");
             String option=keyIn.next();
@@ -480,9 +636,9 @@ class SupManageSys{
                 do {
                     System.out.println();
                     System.out.print("Enter your user password"+"\n\t\t"+"✎. ");
-                    String pass = keyIn.next();
+                    String pass =keyIn.next();
 
-                    if (pass.equals(uPassword)) {
+                    if (pass.equals(uPassword)){
                         flog01 = false;
                         flog02 = false;
                         flog03 = false;
@@ -528,7 +684,7 @@ class SupManageSys{
     }
     public static void StockManagement(){
         clearConsole();
-         disTimeDate();
+        disTimeDate();
         System.out.println("\t\t\t+------------------------------------------------+");
         System.out.println("\t\t\t|                STOCK MANAGEMENT                |");
         System.out.println("\t\t\t+------------------------------------------------+");
@@ -541,7 +697,7 @@ class SupManageSys{
         boolean while_01 = true;
 
         do{
-            System.out.print("Enter an option to continue"+keyBoard+"\n\t\t"+"✎. ");
+            System.out.print("/nEnter an option to continue"+keyBoard+"\n\t\t"+"✎. ");
             String option= keyIn.next();
 
                 switch (option) {
@@ -599,8 +755,16 @@ class SupManageSys{
 
         boolean flog01=false;
         /////////////////////////////////////Shot and compare///////////////////////
-        Arrays.sort(item, (a, b) -> Integer.compare(Integer.parseInt(b[4]), Integer.parseInt(a[4])));
-
+        String[][] sortedArray=item;
+        for (int i = 0; i < item.length; i++){
+			for (int j = 0; j < item.length-1; j++){
+				if(Double.parseDouble(sortedArray[j][4])<Double.parseDouble(sortedArray[j+1][4])){
+					String [] temp = sortedArray[j];
+					sortedArray[j] = sortedArray[j+1];
+					sortedArray[j+1] = temp;
+				}
+		}
+	}
         System.out.println("+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+");
         System.out.println("|      CODE       |       SID       |       CAT       |       DESC      |       PRICE     |        QTY      |");
         System.out.println("+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+");
@@ -692,7 +856,7 @@ class SupManageSys{
                     System.out.printf("|     %s    |    %s    |     %s    |     %s   |     %s      |%n", "ITEM CODE", "DESCRIPTION", "UNIT PRICE", "QTY ON HAND", "CATEGORY");
                     System.out.printf("+------------------+-------------------+-------------------+-------------------+-------------------+%n");
 
-                    for (int j = 1; j < item.length-1; j++) {
+                    for (int j = 0; j < item.length; j++) {
                         if (lastDigit != null && lastDigit.equals(Integer.parseInt(item[j][1]))) {  // Change the index from 1 to 0
                             System.out.printf("|    %10s    |    %-10s     |    %10s     |    %10s     |   %10s   |%n", item[j][0], item[j][3], item[j][4], item[j][5], item[j][2]);
                         }
@@ -862,17 +1026,17 @@ class SupManageSys{
             for (int j = 0; j < temp[i].length; j++) {
                 temp[i][j] = item[i][j];
             }
-            temp[temp.length - 1][0] = itemCode;
         }
+        temp[temp.length - 1][0] = itemCode;
         return temp;
     }
     public static boolean CheckItemID(String itemID){
-        if (item == null) {
+        if (item == null){
             return true;
         }
         boolean flog = true;
-        for (int i = 0; i < item.length; i++) {
-            if (item[i][0] != null && item[i][0].equals(itemID)) {
+        for (int i = 0; i < item.length; i++){
+            if (item[i][0] != null && item[i][0].equals(itemID)){
                 flog = false;
                 break;
             }
@@ -938,7 +1102,7 @@ class SupManageSys{
         do{
             flog01=false;
             System.out.println();
-            System.out.println("Enter Category Name"+keyBoard+"\n\t\t"+"✎. ");
+            System.out.print("Enter Category Name"+keyBoard+"\n\t\t"+"✎. ");
             String catName=keyIn.next();
             boolean rem=checkDeleteCatName(catName);
 
@@ -958,7 +1122,7 @@ class SupManageSys{
 
         do{
             System.out.println();
-            System.out.println("Do you wont to delete another categorie(y/n)"+"\n\t\t"+"✎. ");
+            System.out.print("Do you wont to delete another categorie(y/n)"+"\n\t\t"+"✎. ");
             String option=keyIn.next();
     
             if (option.equals("y")) {
@@ -1010,7 +1174,7 @@ class SupManageSys{
     
             for (int i = 0; i < categorie.length; i++){
                 if (categorie[i].equals(catName)){
-                    System.out.println("Enter new Categorie Name"+"\n\t\t"+"✎. ");
+                    System.out.print("Enter new Categorie Name"+"\n\t\t"+"✎. ");
                     
                     categorie[i]=keyIn.next();
                     System.out.println("update ok ✓");
